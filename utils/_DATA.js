@@ -1,5 +1,5 @@
 export default {
-  react: {
+  React: {
     title: "React",
     questions: [
       {
@@ -12,7 +12,7 @@ export default {
       },
     ],
   },
-  javascript: {
+  JavaScript: {
     title: "JavaScript",
     questions: [
       {

@@ -7,6 +7,8 @@ import middleware from "./middleware";
 import DeckList from "./components/DeckList";
 import Deck from "./components/Deck";
 import NewDeck from "./components/NewDeck";
+import Quiz from "./components/Quiz";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -21,6 +23,7 @@ const DeckStackScreen = () => (
       options={{ headerShown: false }}
     />
     <DeckStack.Screen name="Deck" component={Deck} />
+    <DeckStack.Screen name="Quiz" component={Quiz} />
   </DeckStack.Navigator>
 );
 
@@ -31,16 +34,14 @@ const AppTabsScreen = () => (
       name="Deck List"
       component={DeckStackScreen}
       options={{
-        tabBarIcon: () => <FontAwesome name="sticky-note" size={25} />,
+        tabBarIcon: () => <FontAwesome name="sticky-note" size={20} />,
       }}
     />
     <AppTabs.Screen
       name="New Deck"
       component={NewDeck}
       options={{
-        tabBarIcon: () => (
-          <FontAwesome name="plus-square" size={25}  />
-        ),
+        tabBarIcon: () => <FontAwesome name="plus-square" size={20} />,
       }}
     />
   </AppTabs.Navigator>

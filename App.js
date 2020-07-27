@@ -10,11 +10,16 @@ import NewDeck from "./components/NewDeck";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { FontAwesome } from "@expo/vector-icons";
 
 const DeckStack = createStackNavigator();
 const DeckStackScreen = () => (
   <DeckStack.Navigator>
-    <DeckStack.Screen name="DeckList" component={DeckList} options={{headerShown: false}}/>
+    <DeckStack.Screen
+      name="DeckList"
+      component={DeckList}
+      options={{ headerShown: false }}
+    />
     <DeckStack.Screen name="Deck" component={Deck} />
   </DeckStack.Navigator>
 );
@@ -22,8 +27,22 @@ const DeckStackScreen = () => (
 const AppTabs = createBottomTabNavigator();
 const AppTabsScreen = () => (
   <AppTabs.Navigator>
-    <AppTabs.Screen name="Deck List" component={DeckStackScreen}  />
-    <AppTabs.Screen name="New Deck" component={NewDeck} />
+    <AppTabs.Screen
+      name="Deck List"
+      component={DeckStackScreen}
+      options={{
+        tabBarIcon: () => <FontAwesome name="sticky-note" size={25} />,
+      }}
+    />
+    <AppTabs.Screen
+      name="New Deck"
+      component={NewDeck}
+      options={{
+        tabBarIcon: () => (
+          <FontAwesome name="plus-square" size={25}  />
+        ),
+      }}
+    />
   </AppTabs.Navigator>
 );
 

@@ -78,10 +78,9 @@ class Quiz extends React.Component {
   }
 }
 
-function mapStateToProps(decks, { route, navigation }) {
+function mapStateToProps(decks, { route }) {
   return {
     deck: decks[route.params.deckId],
-    navigation,
   };
 }
 

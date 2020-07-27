@@ -8,6 +8,7 @@ import DeckList from "./components/DeckList";
 import Deck from "./components/Deck";
 import NewDeck from "./components/NewDeck";
 import Quiz from "./components/Quiz";
+import NewCard from "./components/NewCard";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -24,6 +25,7 @@ const DeckStackScreen = () => (
     />
     <DeckStack.Screen name="Deck" component={Deck} />
     <DeckStack.Screen name="Quiz" component={Quiz} />
+    <DeckStack.Screen name="NewCard" component={NewCard} />
   </DeckStack.Navigator>
 );
 

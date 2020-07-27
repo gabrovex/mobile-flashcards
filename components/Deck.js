@@ -12,7 +12,7 @@ class Deck extends React.Component {
         <Text>{title}</Text>
         <Text>{questions.length} card(s)</Text>
         <TouchableOpacity
-          onPress={() => navigation.push("DeckList", { deckId: title })}
+          onPress={() => navigation.push("NewCard", { deckId: title })}
         >
           <Text>Add Card</Text>
         </TouchableOpacity>

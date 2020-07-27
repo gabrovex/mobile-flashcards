@@ -41,7 +41,7 @@ class Quiz extends React.Component {
       );
     }
 
-    const card = questions[cardIdx] ?? null;
+    const card = questions[cardIdx];
 
     if (!card) {
       const correctPercentage = Math.trunc((correctAnswers * 100) / totalCards);
@@ -62,7 +62,9 @@ class Quiz extends React.Component {
 
     return (
       <View>
-        <Text>Card: {cardIdx + 1}/{totalCards}</Text>
+        <Text>
+          Card: {cardIdx + 1}/{totalCards}
+        </Text>
         <Text>{card.question}</Text>
         {answer}
         <TouchableOpacity onPress={this.submitAnswer.bind(this, true)}>

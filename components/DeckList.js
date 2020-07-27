@@ -19,7 +19,7 @@ class DeckList extends React.Component {
           return (
             <TouchableOpacity
               key={deckId}
-              onPress={() => navigation.push("Deck")}
+              onPress={() => navigation.push("Deck", { deckId })}
             >
               <Text>{title}</Text>
               <Text>{questions.length} card(s)</Text>

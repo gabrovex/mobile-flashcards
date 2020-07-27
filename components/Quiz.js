@@ -62,7 +62,7 @@ class Quiz extends React.Component {
 
     return (
       <View>
-        <Text>Card: {cardIdx + 1}/${totalCards}</Text>
+        <Text>Card: {cardIdx + 1}/{totalCards}</Text>
         <Text>{card.question}</Text>
         {answer}
         <TouchableOpacity onPress={this.submitAnswer.bind(this, true)}>

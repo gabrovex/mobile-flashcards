@@ -11,13 +11,16 @@ class DeckList extends React.Component {
   }
 
   render() {
-    const { decks } = this.props;
+    const { decks, navigation } = this.props;
     return (
       <View>
         {Object.entries(decks).map(([deckId, deck]) => {
           const { title, questions } = deck;
           return (
-            <TouchableOpacity key={deckId}>
+            <TouchableOpacity
+              key={deckId}
+              onPress={() => navigation.push("Deck")}
+            >
               <Text>{title}</Text>
               <Text>{questions.length} card(s)</Text>
             </TouchableOpacity>
@@ -28,9 +31,10 @@ class DeckList extends React.Component {
   }
 }
 
-function mapStateToProps(decks) {
+function mapStateToProps(decks, { navigation }) {
   return {
     decks,
+    navigation,
   };
 }
 export default connect(mapStateToProps)(DeckList);

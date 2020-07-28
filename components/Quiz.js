@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
+import { Text, Card, Button } from "react-native-elements";
 
 class Quiz extends React.Component {
   state = {
@@ -46,9 +46,9 @@ class Quiz extends React.Component {
 
     if (!totalCards) {
       return (
-        <View>
+        <Card>
           <Text>No cards for this deck!</Text>
-        </View>
+        </Card>
       );
     }
 
@@ -57,40 +57,38 @@ class Quiz extends React.Component {
     if (!card) {
       const correctPercentage = Math.trunc((correctAnswers * 100) / totalCards);
       return (
-        <View>
+        <Card>
           <Text>You got the {correctPercentage}% of correct answers</Text>
-          <TouchableOpacity onPress={this.restartQuiz}>
-            <Text>Restart Quiz</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.backToDeck}>
-            <Text>Back to Deck</Text>
-          </TouchableOpacity>
-        </View>
+          <Button onPress={this.restartQuiz} title="Restart Quiz" />
+          <Button onPress={this.backToDeck} title="Back to Deck" />
+        </Card>
       );
     }
 
     const answer = answerShown ? (
       <Text>{card.answer}</Text>
     ) : (
-      <TouchableOpacity onPress={this.showAnswer}>
-        <Text>Show Answer</Text>
-      </TouchableOpacity>
+      <Button onPress={this.showAnswer} title="Show Answer" />
     );
 
     return (
-      <View>
+      <Card>
         <Text>
           Card: {cardIdx + 1}/{totalCards}
         </Text>
         <Text>{card.question}</Text>
         {answer}
-        <TouchableOpacity onPress={this.submitAnswer.bind(this, true)}>
-          <Text>Correct</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this.submitAnswer.bind(this, false)}>
-          <Text>Incorrect</Text>
-        </TouchableOpacity>
-      </View>
+        <Button
+          onPress={this.submitAnswer.bind(this, true)}
+          title="Correct"
+          buttonStyle={{ backgroundColor: "green" }}
+        />
+        <Button
+          onPress={this.submitAnswer.bind(this, false)}
+          title="Incorrect"
+          buttonStyle={{ backgroundColor: "red" }}
+        />
+      </Card>
     );
   }
 }
@@ -98,7 +96,7 @@ class Quiz extends React.Component {
 function mapStateToProps(decks, { route, navigation }) {
   return {
     deck: decks[route.params.deckId],
-    navigation
+    navigation,
   };
 }
 

@@ -16,12 +16,14 @@ import { FontAwesome } from "@expo/vector-icons";
 
 const theme = {
   Text: {
-    style: { fontSize: 30 },
+    style: {
+      fontSize: 20,
+      margin: 10,
+    },
   },
-  ListItem: {
-    contentContainerStyle: {
-      flex: 1,
-      fontSize: 30,
+  Button: {
+    buttonStyle: {
+      margin: 10,
     },
   },
   Card: {
@@ -29,11 +31,11 @@ const theme = {
       flex: 1,
       padding: 0,
       margin: 0,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center'},
+      backgroundColor: "#fff",
+      alignItems: "center",
+      justifyContent: "center",
+    },
   },
-
 };
 
 const DeckStack = createStackNavigator();
@@ -71,7 +73,6 @@ const AppTabsScreen = () => (
 );
 
 export default function App() {
-
   return (
     <Provider store={createStore(reducer, middleware)}>
       <NavigationContainer>

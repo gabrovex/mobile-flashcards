@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { saveDeckTitle } from "../utils/api";
 import { addDeck } from "../actions";
 import { connect } from "react-redux";
+import {Text, Card, Button, Input} from 'react-native-elements';
 
 class NewDeck extends React.Component {
   state = {
@@ -37,17 +37,15 @@ class NewDeck extends React.Component {
   render() {
     const { title } = this.state;
     return (
-      <View>
+      <Card>
         <Text>What is the title of your new deck?</Text>
-        <TextInput
+        <Input
           onChangeText={this.handleChangeText}
           placeholder="Write a title"
           value={title}
-        ></TextInput>
-        <TouchableOpacity onPress={this.handleSubmit}>
-          <Text>Submit</Text>
-        </TouchableOpacity>
-      </View>
+        />
+        <Button onPress={this.handleSubmit} title="Submit" />
+      </Card>
     );
   }
 }

@@ -1,27 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, TouchableOpacity } from "react-native";
-import {Text} from 'react-native-elements';
+import { Text, Card, Button } from "react-native-elements";
 class Deck extends React.Component {
   render() {
     const { navigation, deck } = this.props;
     const { title, questions } = deck;
 
     return (
-      <View>
+      <Card>
         <Text>{title}</Text>
         <Text>{questions.length} card(s)</Text>
-        <TouchableOpacity
+        <Button
           onPress={() => navigation.push("NewCard", { deckId: title })}
-        >
-          <Text>Add Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+          title="Add Card"
+        />
+        <Button
           onPress={() => navigation.push("Quiz", { deckId: title })}
-        >
-          <Text>Start Quiz</Text>
-        </TouchableOpacity>
-      </View>
+          title="Start Quiz"
+        />
+      </Card>
     );
   }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { addCardToDeck } from "../utils/api";
 import { connect } from "react-redux";
 import { addCard } from "../actions";
-import { View, TouchableOpacity, TextInput, Text } from "react-native";
+import {Text, Card, Button, Input } from 'react-native-elements';
 
 class NewCard extends React.Component {
   state = {
@@ -52,22 +52,20 @@ class NewCard extends React.Component {
     const { question, answer } = this.state;
 
     return (
-      <View>
+      <Card>
         <Text>Add a question and an answer for a new card</Text>
-        <TextInput
+        <Input
           placeholder="Write a question"
           value={question}
           onChangeText={this.handleQuestionChangeText}
         />
-        <TextInput
+        <Input
           placeholder="Write an answer"
           value={answer}
           onChangeText={this.handleAnswerChangeText}
         />
-        <TouchableOpacity onPress={this.handleSubmit}>
-          <Text>Submit</Text>
-        </TouchableOpacity>
-      </View>
+        <Button onPress={this.handleSubmit} title="Submit" />
+      </Card>
     );
   }
 }

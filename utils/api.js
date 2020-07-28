@@ -3,7 +3,6 @@ import dummyDecks from "./_DATA";
 const DECKS_STORAGE_KEY = "MobileFlashcards:decks";
 
 export function fetchDecks() {
-  //AsyncStorage.clear();
   return AsyncStorage.getItem(DECKS_STORAGE_KEY).then((results) => {
     if (results === null) {
       AsyncStorage.setItem(DECKS_STORAGE_KEY, JSON.stringify(dummyDecks));

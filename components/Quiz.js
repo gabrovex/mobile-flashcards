@@ -73,7 +73,7 @@ class Quiz extends React.Component {
 
     return (
       <Card>
-        <Text>
+        <Text style={{ fontSize: 13 }}>
           Card: {cardIdx + 1}/{totalCards}
         </Text>
         <Text>{card.question}</Text>

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, Text, TouchableOpacity } from "react-native";
-
+import { View, TouchableOpacity } from "react-native";
+import {Text} from 'react-native-elements';
 class Deck extends React.Component {
   render() {
     const { navigation, deck } = this.props;

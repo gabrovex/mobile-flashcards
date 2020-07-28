@@ -15,16 +15,17 @@ class NewDeck extends React.Component {
       return alert("Please, write a title.");
     }
 
-    saveDeckTitle(title).then((result) => {
-      const { dispatch } = this.props;
-      this.props.dispatch(addDeck(title));
-    });
+    saveDeckTitle(title);
+    
+    const { dispatch, navigation } = this.props;
+    
+    dispatch(addDeck(title));
 
     this.setState(() => ({
       title: "",
     }));
-
-    this.props.navigation.goBack();
+    
+    navigation.navigate("Deck", { deckId: title });
   };
 
   handleChangeText = (text) => {

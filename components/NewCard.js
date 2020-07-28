@@ -33,12 +33,13 @@ class NewCard extends React.Component {
       question,
       answer,
     };
-    const { route, navigation } = this.props;
+    const { route, navigation, dispatch } = this.props;
+    
     const title = route.params.deckId;
-    addCardToDeck(card, title).then(() => {
-      const { dispatch } = this.props;
-      this.props.dispatch(addCard(card, title));
-    });
+    
+    addCardToDeck(card, title);
+    
+    dispatch(addCard(card, title));
 
     this.setState(() => ({
       question: "",

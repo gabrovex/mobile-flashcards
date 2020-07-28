@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
@@ -9,11 +8,33 @@ import Deck from "./components/Deck";
 import NewDeck from "./components/NewDeck";
 import Quiz from "./components/Quiz";
 import NewCard from "./components/NewCard";
-
+import { ThemeProvider } from "react-native-elements";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { FontAwesome } from "@expo/vector-icons";
+
+const theme = {
+  Text: {
+    style: { fontSize: 30 },
+  },
+  ListItem: {
+    contentContainerStyle: {
+      flex: 1,
+      fontSize: 30,
+    },
+  },
+  Card: {
+    containerStyle: {
+      flex: 1,
+      padding: 0,
+      margin: 0,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center'},
+  },
+
+};
 
 const DeckStack = createStackNavigator();
 const DeckStackScreen = () => (
@@ -50,10 +71,13 @@ const AppTabsScreen = () => (
 );
 
 export default function App() {
+
   return (
     <Provider store={createStore(reducer, middleware)}>
       <NavigationContainer>
-        <AppTabsScreen />
+        <ThemeProvider theme={theme}>
+          <AppTabsScreen />
+        </ThemeProvider>
       </NavigationContainer>
     </Provider>
   );

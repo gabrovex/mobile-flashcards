@@ -5,7 +5,7 @@ This is the Udacity React Native course final project .
 
 ## Install and start
 
-This project has ben developed bundled and tested using Expo DevTools therefore to install and run it on your machine use the following instructions:
+This project has ben developed bundled and tested using Expo DevTools, on the web mode (`expo start --web`), therefore to install and run it on your machine use the following instructions:
 
 * install all project dependencies with `yarn install`
 * start the development server with `yarn web`

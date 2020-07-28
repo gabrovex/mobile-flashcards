@@ -28,6 +28,17 @@ class Quiz extends React.Component {
     }));
   };
 
+  restartQuiz = () => {
+    this.setState(() => ({
+      cardIdx: 0,
+      correctAnswers: 0,
+    }));
+  };
+
+  backToDeck = () => {
+    this.props.navigation.goBack();
+  };
+
   render() {
     const { questions } = this.props.deck;
     const totalCards = questions.length;
@@ -48,6 +59,12 @@ class Quiz extends React.Component {
       return (
         <View>
           <Text>You got the {correctPercentage}% of correct answers</Text>
+          <TouchableOpacity onPress={this.restartQuiz}>
+            <Text>Restart Quiz</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.backToDeck}>
+            <Text>Back to Deck</Text>
+          </TouchableOpacity>
         </View>
       );
     }
@@ -78,9 +95,10 @@ class Quiz extends React.Component {
   }
 }
 
-function mapStateToProps(decks, { route }) {
+function mapStateToProps(decks, { route, navigation }) {
   return {
     deck: decks[route.params.deckId],
+    navigation
   };
 }
 

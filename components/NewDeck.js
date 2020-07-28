@@ -2,7 +2,7 @@ import React from "react";
 import { saveDeckTitle } from "../utils/api";
 import { addDeck } from "../actions";
 import { connect } from "react-redux";
-import {Text, Card, Button, Input} from 'react-native-elements';
+import { Text, Card, Button, Input } from "react-native-elements";
 
 class NewDeck extends React.Component {
   state = {
@@ -16,15 +16,15 @@ class NewDeck extends React.Component {
     }
 
     saveDeckTitle(title);
-    
+
     const { dispatch, navigation } = this.props;
-    
+
     dispatch(addDeck(title));
 
     this.setState(() => ({
       title: "",
     }));
-    
+
     navigation.navigate("Deck", { deckId: title });
   };
 

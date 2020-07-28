@@ -2,7 +2,7 @@ import React from "react";
 import { addCardToDeck } from "../utils/api";
 import { connect } from "react-redux";
 import { addCard } from "../actions";
-import {Text, Card, Button, Input } from 'react-native-elements';
+import { Text, Card, Button, Input } from "react-native-elements";
 
 class NewCard extends React.Component {
   state = {
@@ -34,11 +34,11 @@ class NewCard extends React.Component {
       answer,
     };
     const { route, navigation, dispatch } = this.props;
-    
+
     const title = route.params.deckId;
-    
+
     addCardToDeck(card, title);
-    
+
     dispatch(addCard(card, title));
 
     this.setState(() => ({

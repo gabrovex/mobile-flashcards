@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { TouchableOpacity } from "react-native";
 import { fetchDecks } from "../utils/api";
 import { getDecks } from "../actions";
-import {Text, Card, ListItem} from 'react-native-elements';
-import { setLocalNotification } from '../utils/notifications'
+import { Text, Card, ListItem } from "react-native-elements";
+import { setLocalNotification } from "../utils/notifications";
 
 class DeckList extends React.Component {
   componentDidMount() {
@@ -25,13 +25,11 @@ class DeckList extends React.Component {
               onPress={() => navigation.push("Deck", { deckId })}
             >
               <ListItem
-                      key={deckId}
-                      title={title}
-                      subtitle={`${questions.length} card(s)`}
-                      bottomDivider
-              >
-
-              </ListItem>
+                key={deckId}
+                title={title}
+                subtitle={`${questions.length} card(s)`}
+                bottomDivider
+              ></ListItem>
             </TouchableOpacity>
           );
         })}
